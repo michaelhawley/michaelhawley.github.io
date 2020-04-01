@@ -63,7 +63,6 @@
 @include motion-ui-transitions;
 @include motion-ui-animations;
 
-
 $topbar-responsive-bg: #2c3840;
 $topbar-responsive-animation-type: fade-in; // or use slide-down or none
 
@@ -155,21 +154,22 @@ $topbar-responsive-animation-type: fade-in; // or use slide-down or none
   }
 }
 
-//@include breakpoint(small only) {
-//  .topbar-responsive-links {
-//    animation-fill-mode: both;
-//    animation-duration: 0.5s;
-//    width: 100%;
+@include breakpoint(small only) {
+  .topbar-responsive-links {
+    animation-fill-mode: both;
+    animation-duration: 0.5s;
+    width: 100%;
 
-//    @if $topbar-responsive-animation-type == slide-down {
-//      animation: slideDown 1s ease-in;
-//    } @else if $topbar-responsive-animation-type == fade-in {
-//      animation: fadeIn 1s ease-in;
-//    } @else {
-//      animation: none;
-//    }
-//  }
-//}
+    @if $topbar-responsive-animation-type == slide-down {
+      animation: slideDown 1s ease-in;
+    } @else if $topbar-responsive-animation-type == fade-in {
+      animation: fadeIn 1s ease-in;
+    } @else {
+      animation: none;
+    }
+  }
+}
+
 html,
 body {
   height: 100%;
