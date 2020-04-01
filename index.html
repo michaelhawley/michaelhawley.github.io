@@ -184,7 +184,6 @@ function project(projection_type){
     projection.scale(1) // set the scale to 1 to get a reading of the base scale used
     dim = Bounds(projection,projection_prop[3], projection_prop[4] , projection_prop[5]) // get the width or height
     projection.scale(projection_prop[2]/dim);  // scale by screen widthheight / base scale widthheight
-    
     return projection
 }
 
@@ -195,7 +194,6 @@ function make_projection(p){
     svg.call(zoom.transform, d3.zoomIdentity);
     projection = project(projection_type = p) // set up the correct projection
     path = d3.geoPath().projection(projection);
-
     centerOfProjection = (projection([0,0]))
     xAdjust = width/2 - centerOfProjection[0]
     yAdjust = height/2 - centerOfProjection[1]
@@ -277,9 +275,9 @@ function getWidth(){
 
 
 
-<script src="node_modules/jquery/dist/jquery.js"></script>
-<script src="node_modules/what-input/dist/what-input.js"></script>
-<script src="node_modules/foundation-sites/dist/js/foundation.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/what-input.js"></script>
+<script src="js/foundation.js"></script>
 <script src="js/app.js"></script>
 
 
