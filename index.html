@@ -71,20 +71,7 @@
     <script src="node_modules/foundation-sites/dist/js/foundation.js"></script>
     <script src="js/app.js"></script>
 
-    <script>
-      // create initial svg and g
-      svg = d3.select(chart).append('svg')
-      svg.attr('width', width).attr('height', height)
-      svg.attr('xmlns', 'http://www.w3.org/2000/svg')
-      svg.attr("viewBox", [0, 0, width,height]);
-      g = svg.append('g');         
-      zoom = d3.zoom()
-          .scaleExtent([1 , 20])
-          .on('zoom',zoomed);
-      svg.call(zoom);
-          console.log(pro.rotate)
-      make_projection()
-    </script>
+
 
 <script>
     
@@ -249,6 +236,20 @@ function getWidth(){
 </script>
 
 
+<script>
+  // create initial svg and g
+  svg = d3.select(chart).append('svg')
+  svg.attr('width', width).attr('height', height)
+  svg.attr('xmlns', 'http://www.w3.org/2000/svg')
+  svg.attr("viewBox", [0, 0, width,height]);
+  g = svg.append('g');         
+  zoom = d3.zoom()
+      .scaleExtent([1 , 20])
+      .on('zoom',zoomed);
+  svg.call(zoom);
+      console.log(pro.rotate)
+  make_projection()
+</script>
 
 
 
