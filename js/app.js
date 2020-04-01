@@ -2,7 +2,8 @@ $(document).foundation();
 
      
 //Data
-var map = "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson"
+var map = "data/world.geojson"
+//var map = "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson"
 var airports = "https://rawgit.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_airports.geojson"
 
 //Colours
