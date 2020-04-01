@@ -6,7 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Info.Map</title>
     <link rel="stylesheet" href="css/app.css">
-    <script language="JavaScript" type="text/javascript" src="js/jquery-3.4.1.slim.js"></script>
+    <script language="JavaScript" type="text/javascript" src="js/jquery.js"></script>
+
+    <!--<script src="node_modules/jquery/dist/jquery.js"></script> 
+    <script src="node_modules/what-input/dist/what-input.js"></script>
+    <script src="node_modules/foundation-sites/dist/js/foundation.js"></script> -->
+
+    
+    <script src="js/what-input.js"></script>
+    <script src="js/foundation.js"></script>
+
+
+    <script src="js/app.js"></script>
+
+
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://d3js.org/topojson.v1.min.js"></script>
     <script src="https://d3js.org/d3-color.v1.min.js"></script>
@@ -66,10 +79,7 @@
     </div>
 
 
-    <script src="node_modules/jquery/dist/jquery.js"></script>
-    <script src="node_modules/what-input/dist/what-input.js"></script>
-    <script src="node_modules/foundation-sites/dist/js/foundation.js"></script>
-    <script src="js/app.js"></script>
+
 
 
 
@@ -109,6 +119,23 @@ var pro = {
     useY: 1
 }
 
+window.onresize = resizeMap;
+
+function resizeMap(){
+  width_new = getWidth()
+  height_new = getHeight()
+  if (width_new != width)
+  {
+    width = width_new
+    height = height_new
+    console.log('width: '+width + ' height:'+ height)
+    svg.attr('width', width).attr('height', height)
+    svg.attr("viewBox", [0, 0, width,height]);
+    make_projection()
+    g.selectAll("path").attr("d", path);
+  }
+}
+
 function draw(data_input, sel,app, projection, fill, stroke){
     g.selectAll("path").remove();
     d3.json(map,function(data){                              
@@ -126,7 +153,6 @@ function draw(data_input, sel,app, projection, fill, stroke){
 function Bounds(p, x, y, xOrY) {  
     xymax = p([ x,-y ])
     xymin = p([-x, y ])
-
 return (xymax[xOrY]-xymin[xOrY]);
 }
 
@@ -179,7 +205,6 @@ function make_projection(p){
 }
 
 function zoomed(p){
-    
     var transform = d3.event.transform; // get the zoom behaviour
     // calculate the rotation ratio for a less dramatic zoom
     ratio = 1      
@@ -195,7 +220,6 @@ function zoomed(p){
         pro.rotate[0] =   transform.x/(t_width) *360 - 180/k +180 + pro.start[0]
         pro.rotate[1] =  -transform.y/(t_height)*180 + 90/k  -90 + pro.start[1]
     } 
-
     projection.rotate(pro.rotate)
     g.selectAll("path").attr("d", path);
 }
@@ -253,7 +277,10 @@ function getWidth(){
 
 
 
-
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<script src="node_modules/what-input/dist/what-input.js"></script>
+<script src="node_modules/foundation-sites/dist/js/foundation.js"></script>
+<script src="js/app.js"></script>
 
 
 
