@@ -51,7 +51,6 @@
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Downloads</a></li>
                 <li><a href="#">Copyright</a></li>
-                
                 <li><a href="#">Donate</a></li>
                 <li>
                   <button type="button" class="button hollow topbar-responsive-button">FAQ</button>
@@ -61,24 +60,26 @@
           </div>
         </nav>
       </div>
+
+
       <div class="row main">
         <div class="content">
           <div class="content map">
-            
-            <div id="chart"></div>  
+            <div id="chart"></div> 
           </div>
           <div class="content filters">
-            filters area
+            
           </div>
         </div>
+
+
+
         
       </div>
       <div class="row footer">
         <p><b>footer</b> (fixed height) (google ads)</p>
       </div>
     </div>
-
-
 
 
 
@@ -119,6 +120,20 @@ var pro = {
     useY: 1
 }
 
+
+// create initial svg and g
+svg = d3.select(chart).append('svg')
+svg.attr('width', width).attr('height', height)
+svg.attr('xmlns', 'http://www.w3.org/2000/svg')
+svg.attr("viewBox", [0, 0, width,height]);
+g = svg.append('g');         
+zoom = d3.zoom()
+    .scaleExtent([1 , 20])
+    .on('zoom',zoomed);
+svg.call(zoom);
+make_projection()
+redraw()
+    
 window.onresize = resizeMap;
 
 function resizeMap(){
@@ -127,17 +142,19 @@ function resizeMap(){
   if (width_new != width)
   {
     width = width_new
-    height = height_new
-    console.log('width: '+width + ' height:'+ height)
+    //height = height_new // bug ? Need help fixing
+    
     svg.attr('width', width).attr('height', height)
     svg.attr("viewBox", [0, 0, width,height]);
     make_projection()
+    //redraw()
     g.selectAll("path").attr("d", path);
   }
 }
 
 function draw(data_input, sel,app, projection, fill, stroke){
     g.selectAll("path").remove();
+    g.selectAll(".countries").remove();
     d3.json(map,function(data){                              
     g.selectAll(".countries")
         .data(data.features)
@@ -169,7 +186,7 @@ function project(projection_type){
             projection_prop = [1, d3.geoAlbers(), width, 90, 0 ,0]
             break;
         case 'geoEquirectangular': 
-            console.log('geoEquirectangular')
+           
             projection_prop = [1, d3.geoEquirectangular(), width, 180, 0 ,0]
             break;
         case 'geoOrthographic': 
@@ -199,7 +216,7 @@ function make_projection(p){
     yAdjust = height/2 - centerOfProjection[1]
     projection.rotate(pro.start)
     g.attr('transform', 'translate('+(xAdjust)+','+yAdjust + ')')
-    redraw()
+    //redraw()
 }
 
 function zoomed(p){
@@ -245,7 +262,6 @@ function redraw_background(jscolor) {
 }
 
 function getHeight(){
-    console.log(document.getElementById('chart').clientHeight)
     return document.getElementById('chart').clientHeight;
 }
 
@@ -253,25 +269,14 @@ function getWidth(){
     var s = document.getElementsByClassName('content map')[0];
     var rect = s.getBoundingClientRect();
     return rect.width;
+
+
 }
 
 </script>
 
 
-<script>
-  // create initial svg and g
-  svg = d3.select(chart).append('svg')
-  svg.attr('width', width).attr('height', height)
-  svg.attr('xmlns', 'http://www.w3.org/2000/svg')
-  svg.attr("viewBox", [0, 0, width,height]);
-  g = svg.append('g');         
-  zoom = d3.zoom()
-      .scaleExtent([1 , 20])
-      .on('zoom',zoomed);
-  svg.call(zoom);
-      console.log(pro.rotate)
-  make_projection()
-</script>
+
 
 
 
