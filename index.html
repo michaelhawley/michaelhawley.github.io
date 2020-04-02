@@ -35,9 +35,37 @@
   </head>
   <body>
 
-    <svg height="100" width="100">
-      <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
-    </svg>
+    <div id="chart"></div> 
+
+    <script>
+    var width = 1000
+    var height = 1000
+
+    // create initial svg and g
+    svg = d3.select(chart).append('svg')
+    svg.attr('width', width).attr('height', height)
+    svg.attr('xmlns', 'http://www.w3.org/2000/svg')
+    svg.attr("viewBox", [0, 0, width,height]);
+    g = svg.append('g'); 
+    var jsonCircles = [
+      { "x_axis": 30, "y_axis": 30, "radius": 20, "color" : "green" },
+      { "x_axis": 70, "y_axis": 70, "radius": 20, "color" : "purple"},
+      { "x_axis": 110, "y_axis": 100, "radius": 20, "color" : "red"}];
+ 
+
+
+    var circles = svg.selectAll("circle")
+                          .data(jsonCircles)
+                          .enter()
+                          .append("circle");
+
+    var circleAttributes = circles
+                       .attr("cx", function (d) { return d.x_axis; })
+                       .attr("cy", function (d) { return d.y_axis; })
+                       .attr("r", function (d) { return d.radius; })
+                       .style("fill", function(d) { return d.color; });
+
+    </script>
 
 
 
