@@ -35,13 +35,60 @@
   </head>
   <body>
 
-    <div id="chart"></div> 
 
-    <script>
-    var width = 300
-    var height = 300
+    <div class="box">
+      <div class="row header">
+        <nav class="top-bar topbar-responsive">
+          <div class="top-bar-title">
+            <span data-responsive-toggle="topbar-responsive" data-hide-for="medium">
+              <button class="menu-icon" type="button" data-toggle></button>
+            </span>
+            <h3> Info.Earth </h3>
+          </div>
+          <div id="topbar-responsive" class="topbar-responsive-links">
+            <div class="top-bar-right">
+              <ul class="menu simple vertical medium-horizontal">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Downloads</a></li>
+                <li><a href="#">Copyright</a></li>
+                <li><a href="#">Donate</a></li>
+                <li>
+                  <button type="button" class="button hollow topbar-responsive-button">FAQ</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
 
-    var map = "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson"
+
+      <div class="row main">
+        <div class="content">
+          <div class="content map">
+            <div id="chart"></div> 
+          </div>
+          <div class="content filters">
+            
+          </div>
+        </div>
+
+
+
+        
+      </div>
+      <div class="row footer">
+        <p><b>footer</b> (fixed height) (google ads)</p>
+      </div>
+    </div>
+
+
+
+
+<script>
+    
+//Data
+//var map = "data/world.geojson"
+var map = "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson"
 var airports = "https://rawgit.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_airports.geojson"
 
 //Colours
@@ -57,7 +104,8 @@ var use_y = true
 var config = {
     init_rot: [0,0,0],
 }
-
+var width = getWidth()
+var height = getHeight()
 
 var maxlat = 80
 
@@ -86,6 +134,23 @@ svg.call(zoom);
 make_projection()
 redraw()
     
+window.onresize = resizeMap;
+
+function resizeMap(){
+  width_new = getWidth()
+  height_new = getHeight()
+  if (width_new != width)
+  {
+    width = width_new
+    //height = height_new // bug ? Need help fixing
+    
+    svg.attr('width', width).attr('height', height)
+    svg.attr("viewBox", [0, 0, width,height]);
+    make_projection()
+    //redraw()
+    g.selectAll("path").attr("d", path);
+  }
+}
 
 function draw(data_input, sel,app, projection, fill, stroke){
     g.selectAll("path").remove();
@@ -196,9 +261,20 @@ function redraw_background(jscolor) {
     document.getElementById("chart").style.backgroundColor = "#" +  jscolor;
 }
 
+function getHeight(){
+    //return document.getElementById('chart').clientHeight
+    return 300;
+}
 
-    </script>
+function getWidth(){
+    var s = document.getElementsByClassName('content map')[0]
+    var rect = s.getBoundingClientRect();
+    //return rect.width;
+    return 300;
+}
 
+
+</script>
 
 
 
