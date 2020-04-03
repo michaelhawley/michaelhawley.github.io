@@ -15,6 +15,7 @@ function showDiv() {
 
 
   var containers = document.querySelectorAll(".container")[0];
+
   function openfilterpane(){
       console.log('c');
       containers.classList.toggle("alert-is-shown");
