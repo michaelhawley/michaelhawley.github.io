@@ -270,7 +270,9 @@ function redraw_background(jscolor) {
 }
 
 function getHeight(){
-    return document.getElementsByClassName('container')[0].clientHeight
+    var s = document.getElementsByClassName('container')[0]
+    var rect = s.getBoundingClientRect();
+    return rect.height;
     
 }
 
