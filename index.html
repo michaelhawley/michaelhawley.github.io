@@ -62,24 +62,32 @@
       </div>
 
 
-      <div class="row main">
-        <div class="content">
-          <div class="content map">
-            <div id="chart"></div> 
-          </div>
-          <div class="content filters">
-            
+      <div class="row main"> <!-- contains the content, the map will be this wide and this high -->
+        <div class="container">
+          <div id="chart"></div>
+          
+          <div class="filterpane">
+            <input type="image" src="data/left-chevron.svg"  type="button" class="openFilterPane" onclick="openfilterpane()">
           </div>
         </div>
 
+        <!--<div id="content"> 
+        <div id="disapear">here</div> 
+        </div>-->
 
-
+      
         
       </div>
       <div class="row footer">
-        <p><b>footer</b> (fixed height) (google ads)</p>
+        
+        
+        
+       
+
+        
       </div>
     </div>
+    
 
 
 
@@ -262,17 +270,16 @@ function redraw_background(jscolor) {
 }
 
 function getHeight(){
-    //return document.getElementById('chart').clientHeight
-    return 300;
+    return document.getElementsByClassName('container')[0].clientHeight
+    
 }
 
 function getWidth(){
-    var s = document.getElementsByClassName('content map')[0]
+    var s = document.getElementsByClassName('container')[0]
     var rect = s.getBoundingClientRect();
-    //return rect.width;
-    return 300;
+    return rect.width;
+    
 }
-
 
 </script>
 

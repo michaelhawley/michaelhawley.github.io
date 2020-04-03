@@ -214,65 +214,27 @@ body {
     flex: 0 1 50px;
   }
 
-#content {
-    background-color: yellow;
+.content {
+    //background-color: yellow;
+    display: flex;
+    flex-direction: rows;
     width: 100%;
     height: 100%
 }
-
+   .content .map{
+       //background-color: red;
+       //flex: 1 1 auto;
+       background-image: url("../data/Map.png");
+        background-size: 3100px 1700px;
+       flex: auto;
+   }
+   .content .filters{
+        background-color: lightgray;
+        flex: none;
+        width: 300px 
+    }
 #disapear {
     background-color: lightgray;
-    display:none;
-    height: 100%;
-    width: 300px;
-    transition: color 1s ease-in;
+    flex: none;
+    width: 300px 
 }
-
-//////////////
-
-
-.container .filterpane {
-  //transform: translateX(130%);
-  transform: translateX(100%);
-  transition-timing-function: ease-in;
-  transition: 0.2s;
-}
-.container.alert-is-shown .filterpane {
-  transition: 0.25s;
-  transition-timing-function: ease-out;
-  transform: translateX(0);
-  opacity: 1;
-}
-
-.container {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  overflow: hidden;
-  border-radius: 0px;
-}
-
-.filterpane {
-  width: 70%;
-  height: 95%;
-  left: 30%;
-  bottom: 2.5%;
-  background: white;
-  border: 5px solid black;
-  border-radius: 10px;
-  //opacity: 0;
-  opacity: 1;
-  box-shadow: 0 5px 15px rgba(black, 0.2);
-  position: absolute;
-  z-index: 10;
-}
-
-.openFilterPane{
-  width: 50px;
-  position: relative;
-  left: -5.4%;
-  top: 2%;
-  border: 5px solid black;
-  
-}
-
