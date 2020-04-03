@@ -208,6 +208,7 @@ body {
   
   .box .row.main {
     flex: 1 1 auto;
+    background-color: yellow;
   }
   
   .box .row.footer {
@@ -250,6 +251,7 @@ body {
   position: relative;
   overflow: hidden;
   border-radius: 0px;
+  background-color: red;
 }
 
 .filterpane {
@@ -274,5 +276,11 @@ body {
   top: 2%;
   border: 5px solid black;
   
+}
+
+#chart{
+  height: 100%;
+  width: 100%;
+  background-color: green;
 }
 
