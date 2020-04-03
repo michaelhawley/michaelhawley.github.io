@@ -242,25 +242,25 @@ body {
 
 .filterpane {
   width: 70%;
-  height: 95%;
-  left: 30%;
-  bottom: 2.5%;
-  background: white;
-  border: 5px solid black;
-  border-radius: 10px;
+  height: 100%;
+  left: -150px;
+  //top: 2.5%;
+  //background: white;
+  //border: 5px solid black;
+ // border-radius: 10px;
   //opacity: 0;
   opacity: 1;
-  box-shadow: 0 5px 15px rgba(black, 0.2);
-  position: absolute;
+  ///box-shadow: 0 5px 15px rgba(black, 0.2);
+  position: relative;
   z-index: 10;
 }
 .openFilterPane{
   width: 50px;
-  position: relative;
+  position: absolute;
   left: -50px;
-  top: 2%;
-  border: 5px solid black;
-  
+  top: 0px;
+  border: 20px;
+  border-color: white;
 }
 
 #chart{
@@ -268,3 +268,14 @@ body {
   background-color: green;
 }
 
+.blackButton{
+  background-color: black;
+  font-size: medium;
+  color: white;
+  width: 100%;
+  margin: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+}

@@ -15,8 +15,12 @@ function showDiv() {
 
 
   var containers = document.querySelectorAll(".container")[0];
+  var filtersImage = document.querySelectorAll(".openFilterPane")[0];
 
   function openfilterpane(){
-      console.log('c');
       containers.classList.toggle("alert-is-shown");
+      console.log(filtersImage)
+      console.log(filtersImage.src)
+      filtersImage.src = filtersImage.src.replace("left","temp").replace("right","left").replace("temp","right")
+      console.log(filtersImage.src)
   }
