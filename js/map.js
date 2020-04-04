@@ -69,6 +69,7 @@ function resizeMap(){
       projection_type = projection_type ||'geoMercator' 
       // [use_y, projection type , width or height, x, y, xOry]
       projection_prop = [1, d3.geoMercator(), width, 180, 0 ,0]
+      
       switch (projection_type) {
           case 'geoMercator':
               projection_prop = [1, d3.geoMercator(), width+2, 180, 0 ,0]
@@ -108,7 +109,8 @@ function resizeMap(){
       yAdjust = height/2 - centerOfProjection[1]
       projection.rotate(pro.start)
       g.attr('transform', 'translate('+(xAdjust)+','+yAdjust + ')')
-      //redraw()
+      redraw()
+      console.log('here')
   }
   
   function zoomed(p){

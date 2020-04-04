@@ -65,20 +65,36 @@
       <div class="row main"> <!-- contains the content, the map will be this wide and this high -->
         
         <div class="container">
-        <div id="chart"></div>
-          
+          <div id="chart"></div>
           <div class="filterpane">
-            <button  class="blackButton">Projection</button>
-            <button  class="blackButton">Colors</button>
-            <button  class="blackButton">Arcs</button>
-            <button  class="blackButton">ETOPS</button>
-            <button  class="blackButton">Layers</button>
-            <button  class="blackButton">Download</button>
-            <button  class="blackButton">Timeline</button>
-         
-
+            <span class="icon icon-globe" onclick="openPullout('projection')"></span>
+            <span class="icon icon-paint" onclick="openPullout('paint')"></span>
+            <span class="icon icon-ETOPS" onclick="openPullout('etops')"></span>
+            <span class="icon icon-Layers" onclick="openPullout('layers')"></span>
+            <span class="icon icon-calendar" onclick="openPullout('calender')"></span>
+            <span class="icon icon-Camera" onclick="openPullout('camera')"></span>
+            <span class="icon icon-plane" onclick="openPullout('airlines')"></span>
+            <span class="icon icon-arc" onclick="openPullout('greatcircle')"></span>
             <input type="image" src="data/left-chevron.svg"  class="openFilterPane" onclick="openfilterpane()">
           </div>
+
+          <div id="pulloutPaneContainer">
+      
+            <div class = "pulloutPane">
+              <span class="icon icon-globe" onclick="make_projection('geoMercator')"></span>
+              <p class = "globetext"> Mercator </p>
+              <span class="icon icon-globe" onclick="make_projection('geoOrthographic')"></span>
+              <p class = "globetext"> Orthographic </p>
+              <span class="icon icon-globe" onclick="make_projection('geoAzimuthalEquidistant')"></span>
+              <p class = "globetext"> Equidistant (fixme) </p>
+              <span class="icon icon-globe" onclick="make_projection('geoEquirectangular')"></span>
+              <p class = "globetext"> Equirectangular </p>
+            </div>
+            
+
+          </div>
+
+          
           
           
         </div>

@@ -241,23 +241,19 @@ body {
 }
 
 .filterpane {
-  width: 70%;
-  height: 100%;
-  left: -150px;
-  //top: 2.5%;
-  //background: white;
-  //border: 5px solid black;
- // border-radius: 10px;
-  //opacity: 0;
-  opacity: 1;
-  ///box-shadow: 0 5px 15px rgba(black, 0.2);
+  right: 103%;
+  top: 8%;
+  height: 400px;
   position: relative;
   z-index: 10;
+  background: rgba(204, 204, 204, 0.5);
+  border-radius: 5px;
+  padding: 10px;
 }
 .openFilterPane{
   width: 50px;
   position: absolute;
-  left: -50px;
+  left: 50px;
   top: 0px;
   border: 20px;
   border-color: white;
@@ -265,17 +261,69 @@ body {
 
 #chart{
   flex: 1 1 auto;
-  background-color: green;
+  background-color: rgb(35, 141, 174);
 }
 
 .blackButton{
   background-color: black;
   font-size: medium;
-  color: white;
+  border: 1px solid grey;
   width: 100%;
   margin: 0px;
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 40px;
   padding-right: 40px;
+}
+
+.blackButton:hover{
+  color:black;
+  background-color: grey;
+}
+.icon-globe {mask: url(/michaelhawley.github.io/data/Globe1.svg);}
+.icon-calendar {mask: url(/michaelhawley.github.io/data/calendar.png);}
+.icon-paint {mask: url(/michaelhawley.github.io/data/paint.svg);}
+.icon-Camera {mask: url(/michaelhawley.github.io/data/Camera.svg);}
+.icon-download {mask: url(/michaelhawley.github.io/data/download100.svg);}
+.icon-ETOPS {mask: url(/michaelhawley.github.io/data/ETOPS.svg);}
+.icon-Layers {mask: url(/michaelhawley.github.io/data/layers.svg);}
+.icon-plane {mask: url(/michaelhawley.github.io/data/plane.svg);}
+.icon-arc {mask: url(/michaelhawley.github.io/data/arc.svg);}
+.icon {
+  //display: inline-block;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+
+  width: 40px;
+  height: 40px;
+  background: #2c3840;
+  mask-size: cover;
+  text-align: center;
+  
+  
+}
+.icon:hover,
+.icon:focus {
+  background: orangered;
+}
+
+#pulloutPaneContainer{
+  position: relative;
+  right: 99%;
+  top: 8%;
+  
+}
+
+.pulloutPane{
+  background: rgba(204, 204, 204, 0.5);
+  border-radius: 5px;
+  padding: 10px;
+  
+}
+
+.globetext{
+  text-align: center;
+  margin: 0px;
 }
