@@ -140,7 +140,9 @@ function resizeMap(){
   }
   function redraw_border(jscolor) {
       colors.border = "#" +  jscolor
-      document.getElementsByClassName("cicon-border")[0].style.background = "#" +  jscolor;
+      console.log('here')
+      console.log(colors.border)
+      //document.getElementsByClassName("cicon-border")[0].style.background = "#" +  jscolor;
       redraw()
   }
   function redraw_colors(jscolor) {
