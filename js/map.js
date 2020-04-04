@@ -1,6 +1,5 @@
 function initMap(){
     
-
     // create initial svg and g
 svg = d3.select(chart).append('svg')
 svg.attr('width', width).attr('height', height)
@@ -141,16 +140,20 @@ function resizeMap(){
   }
   function redraw_border(jscolor) {
       colors.border = "#" +  jscolor
+      document.getElementsByClassName("cicon-border")[0].style.background = "#" +  jscolor;
       redraw()
   }
   function redraw_colors(jscolor) {
       colors.fill = "#" +  jscolor
+      document.getElementsByClassName("cicon-grass")[0].style.background = "#" +  jscolor;
       redraw()
   }
   function redraw_sea(jscolor) {
       colors.sea = "#" +  jscolor
+      document.getElementsByClassName("cicon-wave")[0].style.background = "#" +  jscolor;
       redraw()
   }
   function redraw_background(jscolor) {
       document.getElementById("chart").style.backgroundColor = "#" +  jscolor;
+      document.getElementsByClassName("cicon-moon")[0].style.background = "#" +  jscolor;
   }

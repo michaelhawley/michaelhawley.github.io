@@ -301,8 +301,6 @@ body {
   background: #2c3840;
   mask-size: cover;
   text-align: center;
-  
-  
 }
 .icon:hover,
 .icon:focus {
@@ -326,4 +324,66 @@ body {
 .globetext{
   text-align: center;
   margin: 0px;
+}
+
+.jscolor-size{
+  width: 70px;
+  text-align: center;
+  padding: 0px;
+}
+
+.colorDiv{
+  display: flex;
+  align-items: center;
+  width: 150px;
+}
+.colorDivIcons{
+  width: 150px;
+}
+.colorSubDiv{
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+.cicon-moon {
+  mask: url(/michaelhawley.github.io/data/moon.svg);
+  background: rgb(35, 141, 174);
+}
+.cicon-wave {
+  mask: url(/michaelhawley.github.io/data/wave.svg);
+  background: pink;
+  transform: scaleX(-1);
+}
+.cicon-grass {
+  mask: url(/michaelhawley.github.io/data/grass.svg);
+  background: grey;
+}
+.cicon-hand {
+  mask: url(/michaelhawley.github.io/data/hand.svg);
+  background: white;
+}
+.cicon-border {
+  mask: url(/michaelhawley.github.io/data/border.svg);
+  background: white;
+}
+.cicon {
+  width: 40px;
+  height: 40px;
+  mask-size: cover;
+  padding: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+.cicon:hover,
+.cicon:focus {
+  background: orangered;
+}
+
+.colorFont{
+  padding-top: 10px;
+  line-height: 1em;
+  margin-bottom: 0.1em;
+
 }

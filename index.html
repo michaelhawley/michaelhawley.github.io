@@ -15,7 +15,7 @@
     
     <script src="js/what-input.js"></script>
     <script src="js/foundation.js"></script>
-
+    <script src="js/jscolor.js"></script>
 
     <script src="js/app.js"></script>
     <script src="js/map.js"></script>
@@ -75,11 +75,58 @@
             <span class="icon icon-Camera" onclick="openPullout('camera')"></span>
             <span class="icon icon-plane" onclick="openPullout('airlines')"></span>
             <span class="icon icon-arc" onclick="openPullout('greatcircle')"></span>
+            
+
             <input type="image" src="data/left-chevron.svg"  class="openFilterPane" onclick="openfilterpane()">
           </div>
 
           <div id="pulloutPaneContainer">
+            <div class="pulloutPane">
+              <div class = "colorDiv">
+                <span class="cicon cicon-grass"></span>
+                <div class = "colorSubDiv">
+                  <p class = "colorFont">Land</p>
+                  <input class="jscolor jscolor-size" onchange="redraw_colors(jscolor)" value="cc66ff">
+                </div>
+              </div>
+
+              <div class = "colorDiv">
+                <span class="cicon cicon-border"></span>
+                <div class = "colorSubDiv">
+                  <p class = "colorFont">Border</p>
+                  <input class="jscolor jscolor-size" onchange="redraw_border(jscolor)" value="cc66ff">
+                </div>
+              </div>
+
+              <div class = "colorDiv">
+                <span class="cicon cicon-wave"></span>
+                <div class = "colorSubDiv">
+                  <p class = "colorFont">Ocean</p>
       
+                  <input class="jscolor jscolor-size"  value="cc66ff">
+                </div>
+              </div>
+
+              <div class = "colorDiv">
+                <span class="cicon cicon-moon"></span>
+                <div class = "colorSubDiv">
+                  <p class = "colorFont">Space</p>
+                  <input class="jscolor jscolor-size" onchange="redraw_background(jscolor)" value="cc66ff">
+                </div>
+              </div>              
+
+              <div class = "colorDiv">
+                <span class="cicon cicon-hand"></span>
+                <div class = "colorSubDiv">
+                  <p class = "colorFont">Select</p>
+                  <input class="jscolor jscolor-size" onchange="redraw_colors(jscolor)" value="cc66ff">
+                </div>
+              </div>
+
+     
+            </div>
+            
+          <!--
             <div class = "pulloutPane">
               <span class="icon icon-globe" onclick="make_projection('geoMercator')"></span>
               <p class = "globetext"> Mercator </p>
@@ -90,7 +137,7 @@
               <span class="icon icon-globe" onclick="make_projection('geoEquirectangular')"></span>
               <p class = "globetext"> Equirectangular </p>
             </div>
-            
+          -->
 
           </div>
 
