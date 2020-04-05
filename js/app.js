@@ -43,7 +43,7 @@ function openPullout(pane){
             break;
         case 'camera':
             $("#pulloutPaneContainer").children().remove();
-
+            $("#pulloutPaneContainer").append('<div class="downloadPane"><div class = "downloadDiv" onclick="download_svg()"><img src="data/MountainsSVG.png" width="40px"><div class = "downloadSubDiv"><p class = "downloadFont bold">Download SVG</p><p class = "downloadFont">Best for presentatons</p></div></div><div class = "downloadDiv" onclick="download_format()"><img src="data/MountainsPNG.png" width="40px"><div class = "downloadSubDiv"><p class = "downloadFont bold">Download PNG</p><p class = "downloadFont">Best for printing</p></div></div>')
     }
     paneCurrent = pane
 
